@@ -3,7 +3,7 @@ public class Main extends PApplet {
     Player pl1 = new Player(1);
     Player pl2 = new Player(2);
 
-    Ball ball = new Ball(35, 35, 2);
+    Ball ball = new Ball(35, 35);
 
     public static void main(String... args) {
         PApplet.main("Main");
