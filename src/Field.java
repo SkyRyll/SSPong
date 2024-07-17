@@ -1,6 +1,6 @@
 public class Field {
-    private static int mFieldWidth = 1600;
-    private static int mFieldHeight = 900;
+    private static int mFieldWidth = 1300;
+    private static int mFieldHeight = 700;
 
 //    public static int getmFieldWidth() {
 //        return mFieldWidth;

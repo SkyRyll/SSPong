@@ -2,6 +2,8 @@ import processing.core.*;
 public class Main extends PApplet {
     Player pl1 = new Player(1);
     Player pl2 = new Player(2);
+
+    Ball ball = new Ball(650, 350, 35, 35, 8);
     int score1 = 0;
     int score2 = 0;
     // Field playingField = new Field(1600, 900);
@@ -15,13 +17,15 @@ public class Main extends PApplet {
 
     }
     public void settings() {
-        size(1600, 900);
+        size(1300, 700);
     }
     public void draw(){
 
         background(50, 50, 50);
         drawPlayer(pl1);
         drawPlayer(pl2);
+        drawBall(ball);
+        ball.update();
 
         text(str(score1), 10, 25);
         text(str(score2), 10, 25);
@@ -41,6 +45,11 @@ public class Main extends PApplet {
     public void drawPlayer(Player pl) {
         fill(255);
         rect(pl.x, pl.y, pl. plWidth, pl.plHeight);
+    }
+
+    public void drawBall(Ball ball) {
+        fill(255);
+        ellipse(ball.ballPosX, ball.ballPosY, ball.ballWidth, ball.ballHeight);
     }
     public static void main(String... args){
         PApplet.main("Main");
