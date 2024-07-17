@@ -38,13 +38,15 @@ public class Main extends PApplet {
         ball.update();
         ball.checkCollision(pl1, pl2);
 
+
+        checkGoal();
+
         fill(255);
         textAlign(LEFT);
         text(str(pl1.getScore()), 20, 45);
         textAlign(RIGHT);
         text(str(pl2.getScore()), 1300 - 20, 45);
 
-        checkGoal();
     }
 
     public void keyPressed() {
@@ -83,10 +85,10 @@ public class Main extends PApplet {
     }
 
     public void checkGoal() {
-        if (ball.getBallPosX() <= 0 + ball.getBallWidth()) {
+        if (ball.ballPosX - ball.ballWidth <= 0) {
             scoreGoal(pl2);
         }
-        if (ball.getBallPosX() >= 1300 - ball.getBallWidth()) {
+        if (ball.ballPosX + ball.ballWidth >= 1300) {
             scoreGoal(pl1);
         }
     }
