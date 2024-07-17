@@ -58,7 +58,6 @@ public class Ball {
             if(((pl1.playerY <= ballPosY) && (ballPosY <= pl1.playerY + pl1.plHeight)) ||
             ((pl2.playerY <= ballPosY) && (ballPosY <= pl2.playerY + pl2.plHeight))) {
                 speedX *= -1.15;
-                speedY *= -1.15;
             }
         }
 
