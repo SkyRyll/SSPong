@@ -9,15 +9,17 @@ public class Ball {
     float ballPosY;
     float speedX;
     float speedY;
+    float startSpeedX = 2;
+    float startSpeedY = 2;
 
-    Ball(int ballWidth, int ballHeight, int ballSpeed) {
+    Ball(int ballWidth, int ballHeight) {
         this.ballPosX = ballStartX;
         this.ballPosY = ballStartY;
         this.ballWidth = ballWidth;
         this.ballHeight = ballHeight;
         this.ballSpeed = ballSpeed;
-        this.speedX = ballSpeed;
-        this.speedY = ballSpeed;
+        this.speedX = startSpeedX;
+        this.speedY = startSpeedY;
     }
 
     public void update() {
@@ -36,6 +38,8 @@ public class Ball {
     public void reset() {
          this.ballPosX = ballStartX;
          this.ballPosY = ballStartY;
+         this.speedX = startSpeedX;
+         this.speedY = startSpeedY;
 
     }
 
@@ -50,17 +54,11 @@ public class Ball {
         return ballWidth;
     }
     public void checkCollision(Player pl1, Player pl2){
-        float deltaXSquared1 = (ballPosX - pl1.playerX) * (ballPosX - pl1.playerX);
-        float deltaYSquared1 = (ballPosY - pl1.playerY) * (ballPosY - pl1.playerX);
-        float distanz1 = (float) Math.sqrt(deltaXSquared1 + deltaYSquared1);
-
-        float deltaXSquared2 = (ballPosX - pl2.playerX) * (ballPosX - pl2.playerX);
-        float deltaYSquared2 = (ballPosY - pl2.playerY) * (ballPosY - pl2.playerX);
-        float distanz2 = (float) Math.sqrt(deltaXSquared2 + deltaYSquared2);
-
-
-        if ((distanz1 <= ballWidth/2) || (distanz2 <= ballWidth/2)){
-            speedX *= -1;
+        if((ballPosX <= pl1.playerX + pl1.plWidth) || (ballPosX >= pl2.playerX)) {
+            if(((pl1.playerY <= ballPosY) && (ballPosY <= pl1.playerY + pl1.plHeight)) ||
+            ((pl2.playerY <= ballPosY) && (ballPosY <= pl2.playerY + pl2.plHeight))) {
+                speedX *= -1.15;
+            }
         }
 
     }
