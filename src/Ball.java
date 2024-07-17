@@ -31,4 +31,11 @@ public class Ball {
 
     }
 
+    public float getBallPosX() {
+        return ballPosX;
+    }
+
+    public float getBallPosY() {
+        return ballPosY;
+    }
 }
