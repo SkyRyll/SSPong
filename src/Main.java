@@ -39,7 +39,7 @@ public class Main extends PApplet {
         ball.checkCollision(pl1, pl2);
 
 
-        checkGoal();
+        checkGoal(pl1, pl2, ball);
 
         fill(255);
         textAlign(LEFT);
@@ -84,18 +84,18 @@ public class Main extends PApplet {
         ellipse(ball.ballPosX, ball.ballPosY, ball.ballWidth, ball.ballHeight);
     }
 
-    public void checkGoal() {
-        if (ball.ballPosX - ball.ballWidth <= 0) {
-            scoreGoal(pl2);
+    public void checkGoal(Player pl1, Player pl2, Ball ball) {
+        if (ball.ballPosX - ball.getBallWidth() <= 0) {
+            scoreGoal(pl2, ball);
         }
-        if (ball.ballPosX + ball.ballWidth >= 1300) {
-            scoreGoal(pl1);
+        if (ball.ballPosX + ball.getBallWidth() >= 1300) {
+            scoreGoal(pl1, ball);
         }
     }
 
-    public void scoreGoal(Player pl) {
+    public void scoreGoal(Player pl, Ball ball) {
         pl.score++;
-        System.out.println("Player " + pl.PlayNr + " scores!");
+        String score = "Player " + pl.PlayNr + " scores!";
         ball.reset();
     }
 }
